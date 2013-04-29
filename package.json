@@ -1,0 +1,15 @@
+{
+  "name": "cosm-datahub-helper",
+  "description": "A quick hack to integrate datahub.io with Cosm API",
+  "version": "0.0.1",
+  "main": "index.js",
+  "dependencies": {
+    "restify": "2.4.1"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Ilya Dmitrichenko",
+    "email": "ilya.dmitrichenko@cosm.com",
+    "url": "http://git.io/ilya.dmitrichenko"
+  }
+}
