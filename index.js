@@ -6,14 +6,18 @@ var client = restify.createStringClient({
   url: 'https://api.cosm.com'
 });
 
+var makeRequestHeaders = function() {
+  return {
+    'Agent':'cosm-datahub-helper/0.0.1',
+    'Accept':'text/csv',
+    'X-ApiKey': process.env['COSM_API_KEY'],
+  },
+}
+
 var makeGetFeedRequest = function(feed_id, callback) {
   var options = {
     path: '/v2/feeds/'+feed_id,
-    headers: {
-      'Agent':'cosm-datahub-helper/0.0.1',
-      'Accept':'text/csv',
-      'X-ApiKey': process.env['COSM_API_KEY'],
-    },
+    headers: makeRequestHeaders(),
   };
 
   client.get(options, function(err, req, res, data) {
@@ -25,11 +29,7 @@ var makeGetFeedRequest = function(feed_id, callback) {
 var makeGetFeedHistoryRequest = function(feed_id, qp, callback) {
   var options = {
     path: '/v2/feeds/'+feed_id,
-    headers: {
-      'Agent':'cosm-datahub-helper/0.0.1',
-      'Accept':'text/csv',
-      'X-ApiKey': process.env['COSM_API_KEY'],
-    },
+    headers: makeRequestHeaders(),
     query: qp,
   };
 
